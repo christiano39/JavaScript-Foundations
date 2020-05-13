@@ -7,7 +7,7 @@
 const principal = 200000;
 const interestRate = 0.05;
 const years = 30;
-const name = "Christian";
+//const name = "Christian";
 
 // 🏡 Task 1.5: Simple Math
 /* To create a monthly mortgage rate calculator, we need to know the number of years in months and the monthly interest rate. 
@@ -41,7 +41,7 @@ const monthlyRate = principal * (numerator / denominator);
 If your name is `Oscar` mortgageCalculator() should return "Oscar, your monthly rate is 1073.64"
 */
 
-function mortgageCalculator() {
+function mortgageCalculator1() {
     const principal = 200000;
     const interestRate = 0.05;
     const years = 30;
@@ -54,7 +54,7 @@ function mortgageCalculator() {
     return `${name}, your monthly rate is $${Math.round(monthlyRate)}`;
 }
 
-//console.log(mortgageCalculator());
+//console.log(mortgageCalculator1());
 
 // 🏡 Task 4: Arguments and Parameters
 /* Substitute the variables in your functions for parameters such that you can substitute `P`, `I`, and `N` when you call the function.
@@ -76,7 +76,7 @@ function mortgageCalculator(p, i, n) {
     return `${name}, your monthly rate is $${Math.round(monthlyRate)}`;
 }
 
-//console.log(mortgageCalculator(200000, 0.05, 30));
+//console.log(mortgageCalculator2(200000, 0.05, 30));
 
 // 🏡 Task 5: Conditionals
 /* Add another paramter to your function called credit score. This parameter will be a number between 0 and 800 (a credit score).
@@ -84,7 +84,7 @@ function mortgageCalculator(p, i, n) {
 Then, add control flow within your function such that IF creditScore is above 740, interest rate drops by 0.5%, if credit score is below 660, interest rate increases by 0.5% and if credit score is anywhere between 660 and 740 interest rate doesn't change.
 */
 
-function mortgageCalculator(p, i, n, creditScore) {
+function mortgageCalculator3(p, i, n, creditScore) {
     const principal = p;
     let interestRate = i;
     if (creditScore > 740) {
@@ -102,7 +102,7 @@ function mortgageCalculator(p, i, n, creditScore) {
     return `${name}, your monthly rate is $${Math.round(monthlyRate)}`;
 }
 
-//console.log(mortgageCalculator(200000, 0.05, 30, 700));
+//console.log(mortgageCalculator3(200000, 0.05, 30, 600));
 
 // 🏡 Task 6: Loops
 /* Write a new function called variableInterestRate. This function should be the same as mortgageCalculator, except it should console.log the monthly payment for 10 different interest rates at 0.5% increments plus or minus 2% from the inputted interest rate. Complete these calculations using a for loop.
@@ -152,5 +152,9 @@ function variableInterestRate(p, i, n) {
 
 /* 🏡 Explore using `window.prompt()` to allow a user to input parameters in the browser */
 
+// let principal2 = window.prompt("What is the principal amount?");
+// let interestRate2 = window.prompt("What is the interest rate?");
+// let years2 = window.prompt("How many years?");
+// variableInterestRate(principal2, interestRate2, years2);
 
 /* 🏡  Refactor your `variableInterestRate()` function to accept an array of interest rates (make sure to copy and paste as to not lose your work!) */
