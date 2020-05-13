@@ -7,7 +7,7 @@
 const principal = 200000;
 const interestRate = 0.05;
 const years = 30;
-//const name = "Christian";
+const name = "Christian";
 
 // 🏡 Task 1.5: Simple Math
 /* To create a monthly mortgage rate calculator, we need to know the number of years in months and the monthly interest rate. 
@@ -33,7 +33,7 @@ When your math is correct, monthlyRate will equal 1073.64
 const numerator = (Math.pow(1 + monthlyInterestRate, periods)) * monthlyInterestRate;
 const denominator = (Math.pow(1 + monthlyInterestRate, periods)) - 1;
 const monthlyRate = principal * (numerator / denominator);
-//console.log(monthlyRate);
+console.log(monthlyRate);
 
 // 🏡 Task 3: Function
 /* Create a function called `mortgageCalculator` that combines all of the steps from task 1 and 2 and returns a sentence "{Name}, your monthly rate is ${monthlyRate}"
@@ -134,8 +134,20 @@ function variableInterestRate(principal, interestRate, years, name) {
 
 /*  🏡 Add  `Property Tax`, `Homeowner's insurance` and `HOA fees` as parameters in your function to calculate total monthly spending on housing */
 
+function mortgageCalculator4(principal, interestRate, years, propertyTax, homeOwnersInsurance, hoaFees, name) {
+    const monthlyInterestRate = interestRate / 12;
+    const periods = years * 12;
+    const numerator = (Math.pow(1 + monthlyInterestRate, periods)) * monthlyInterestRate;
+    const denominator = (Math.pow(1 + monthlyInterestRate, periods)) - 1;
+    let monthlyRate = principal * (numerator / denominator);
+    monthlyRate += propertyTax + homeOwnersInsurance + hoaFees;
+    return `${name}, your monthly rate is $${Math.round(monthlyRate*100)/100}`;
+}
+
+//console.log(mortgageCalculator4(200000, 0.05, 30, 150, 50, 50, "Christian"));
 
 /* 🏡 Build a calculator function that accepts `monthly payment` and `interest rate` and returns the maximum loan that a person could afford */
+
 
 
 /* 🏡 Explore using `window.prompt()` to allow a user to input parameters in the browser */
@@ -147,3 +159,16 @@ function variableInterestRate(principal, interestRate, years, name) {
 // variableInterestRate(principal2, interestRate2, years2, name2);
 
 /* 🏡  Refactor your `variableInterestRate()` function to accept an array of interest rates (make sure to copy and paste as to not lose your work!) */
+
+function variableInterestRateArray(principal, interestRate, years, name) {
+    const periods = years * 12;
+    for (let i = 0; i < interestRate.length; i++) {
+        const monthlyInterestRate = interestRate[i] / 12;
+        const numerator = (Math.pow(1 + monthlyInterestRate, periods)) * monthlyInterestRate;
+        const denominator = (Math.pow(1 + monthlyInterestRate, periods)) - 1;
+        const monthlyRate = principal * (numerator / denominator);
+        console.log(`${name}, with an interest rate of ${Math.round(interestRate[i] * 1000)/1000}, your monthly rate is $${Math.round(monthlyRate*100)/100}`);
+    }
+}
+
+//variableInterestRateArray(200000, [0.01, 0.015, 0.02, 0.025, 0.03, 0.035, 0.04, 0.045, 0.05, 0.055, 0.06, 0.065, 0.07], 30, "Christian");
