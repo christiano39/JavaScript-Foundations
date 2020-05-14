@@ -82,9 +82,9 @@ Then, add control flow within your function such that IF creditScore is above 74
 
 function mortgageCalculator3(principal, interestRate, years, name, creditScore) {
     if (creditScore > 740) {
-        interestRate *= 0.995;
+        interestRate -= 0.005;
     } else if (creditScore < 660) {
-        interestRate *= 1.005;
+        interestRate += 0.005;
     }
     const monthlyInterestRate = interestRate / 12;
     const periods = years * 12;
@@ -94,7 +94,7 @@ function mortgageCalculator3(principal, interestRate, years, name, creditScore) 
     return `${name}, your monthly rate is $${Math.round(monthlyRate*100)/100}`;
 }
 
-//console.log(mortgageCalculator3(200000, 0.05, 30, "Christian", 700));
+//console.log(mortgageCalculator3(200000, 0.05, 30, "Christian", 600));
 
 // 🏡 Task 6: Loops
 /* Write a new function called variableInterestRate. This function should be the same as mortgageCalculator, except it should console.log the monthly payment for 10 different interest rates at 0.5% increments plus or minus 2% from the inputted interest rate. Complete these calculations using a for loop.
